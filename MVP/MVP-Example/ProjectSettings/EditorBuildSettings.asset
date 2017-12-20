@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MVP-Example/Scenes/Root.unity
+    guid: 3b1c663bc712f4e409da5153edac5615
+  - enabled: 1
+    path: Assets/MVP-Example/Scenes/DeckEdit.unity
+    guid: 9fdcbbcd5a9a26d47949a331a59ba271

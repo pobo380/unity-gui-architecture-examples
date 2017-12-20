@@ -30,9 +30,9 @@ public class CharacterFacePanelView : MonoBehaviour
         _characterFace.sprite = sprite;
     }
 
-    public void SetElementFrame(Sprite sprite)
+    public void SetElementFrame(Color color)
     {
-        _elementFrame.sprite = sprite;
+        _elementFrame.color = color;
     }
 
     // private methods

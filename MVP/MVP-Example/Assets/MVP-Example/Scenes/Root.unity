@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 419213918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63941d4feeefd41468121020cea7f63f, type: 3}
+  m_Script: {fileID: 11500000, guid: 61872a20b9ff64e498b2275ff3700116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &419213920
@@ -151,6 +151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1899617711}
+  - {fileID: 863465486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -222,6 +223,113 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 608286312}
+--- !u!1 &863465485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 863465486}
+  - component: {fileID: 863465489}
+  - component: {fileID: 863465488}
+  - component: {fileID: 863465487}
+  m_Layer: 0
+  m_Name: ApplicationWideObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863465486
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863465485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 419213920}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863465487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863465485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fb47c9adc535c4793d673b6857d0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors:
+  - {r: 0.64705884, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0.5588235, a: 1}
+  - {r: 0, g: 0.61764705, b: 0, a: 1}
+  - {r: 0.58823526, g: 0.58823526, b: 0, a: 1}
+  - {r: 0.5955882, g: 0, b: 0.5955882, a: 1}
+--- !u!114 &863465488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863465485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7acfc3480d60848b425b2c8c1fc26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characters:
+  - ID: 1
+    Name: Goblin
+    Power: 10
+    Speed: 5
+    HP: 40
+    ElementType: 0
+  - ID: 2
+    Name: Pixie
+    Power: 5
+    Speed: 15
+    HP: 30
+    ElementType: 1
+  - ID: 3
+    Name: Golem
+    Power: 30
+    Speed: 1
+    HP: 100
+    ElementType: 2
+  - ID: 4
+    Name: Unicorn
+    Power: 10
+    Speed: 20
+    HP: 50
+    ElementType: 3
+  - ID: 5
+    Name: Ghost
+    Power: 40
+    Speed: 10
+    HP: 5
+    ElementType: 4
+--- !u!114 &863465489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863465485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b57f9db652c44842bfd072ab4f821ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: eb22487bfd90ccf4f8afc25044b22909, type: 3}
+  - {fileID: 21300000, guid: 650e1cefbc89f0f419f9be50aafa8591, type: 3}
+  - {fileID: 21300000, guid: 508bbbc53a9fbe04ba081a95838529f5, type: 3}
+  - {fileID: 21300000, guid: dc500e082b65c9e4caab9201fdb2eed6, type: 3}
+  - {fileID: 21300000, guid: 9116ab515b58df045b96fdfb26a423cf, type: 3}
 --- !u!1 &1899617710
 GameObject:
   m_ObjectHideFlags: 0
