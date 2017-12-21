@@ -8,6 +8,11 @@ public class CharacterMasterDataProvider : SingletonMonoBehaviour<CharacterMaste
     [SerializeField]
     private List<Character> _characters;
 
+    public IEnumerable<Character> AllCharactersEnumerable
+    {
+         get { return _characters; }
+    }
+
     // override methods (SingletonMonoBehavior)
 
     protected override void OnAwake()
