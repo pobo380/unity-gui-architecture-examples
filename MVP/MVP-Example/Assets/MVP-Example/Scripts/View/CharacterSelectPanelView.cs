@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
@@ -19,6 +20,9 @@ public class CharacterSelectPanelView : MonoBehaviour
     private Text _speedText;
 
     [SerializeField]
+    private Button _selectButton;
+
+    [SerializeField]
     private Transform _facePanelParent;
 
     [SerializeField]
@@ -30,12 +34,16 @@ public class CharacterSelectPanelView : MonoBehaviour
         private set;
     }
 
+    public Action OnClick = delegate { };
+
     // public methods
 
     public void Setup()
     {
         FacePanel = Instantiate(_facePanelViewPrefab, _facePanelParent, false);
         FacePanel.Setup();
+
+        _selectButton.onClick.AddListener(SelectButtonOnClick);
     }
 
     public void SetNameText(string text)
@@ -56,5 +64,15 @@ public class CharacterSelectPanelView : MonoBehaviour
     public void SetSpeedText(string text)
     {
         _speedText.text = text;
+    }
+
+    // private methods
+
+    private void SelectButtonOnClick()
+    {
+        if (OnClick != null)
+        {
+            OnClick();
+        }
     }
 }

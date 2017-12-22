@@ -9,9 +9,13 @@ public class DeckEditSceneInstaller : MonoBehaviour
     private CharacterFacePanelView[] _deckFacePanels;
 
     [SerializeField]
+    private CharacterSelectIndicatorView[] _selectIndicators;
+
+    [SerializeField]
     private CharacterSelectListView _characterSelectListView;
 
     private List<CharacterFacePanelPresenter> _facePanelPresenters;
+    private List<CharacterSelectIndicatorPresenter> _selectIndicatorPresenters;
     private CharacterSelectListPresenter _characterSelectListPresenter;
 
     private DeckModel _deckModel;
@@ -31,6 +35,7 @@ public class DeckEditSceneInstaller : MonoBehaviour
     {
         _deckModel = new DeckModel();
         _facePanelPresenters = new List<CharacterFacePanelPresenter>();
+        _selectIndicatorPresenters = new List<CharacterSelectIndicatorPresenter>();
 
         for (int i = 0; i < _deckFacePanels.Length; i++)
         {
@@ -39,6 +44,15 @@ public class DeckEditSceneInstaller : MonoBehaviour
             var presenter = new CharacterFacePanelPresenter(_deckFacePanels[i], _deckModel);
             presenter.Setup(i);
             _facePanelPresenters.Add(presenter);
+        }
+
+        for (int i = 0; i < _selectIndicators.Length; i++)
+        {
+            _selectIndicators[i].Setup();
+
+            var presenter = new CharacterSelectIndicatorPresenter(_selectIndicators[i], _deckModel);
+            presenter.Setup(i);
+            _selectIndicatorPresenters.Add(presenter);
         }
 
         _deckModel.Reset();
@@ -52,6 +66,6 @@ public class DeckEditSceneInstaller : MonoBehaviour
         _characterSelectListView.Setup();
 
         _characterSelectListPresenter = new CharacterSelectListPresenter(_characterSelectListView, _characterListModel);
-        _characterSelectListPresenter.Setup();
+        _characterSelectListPresenter.Setup(_deckModel);
     }
 }

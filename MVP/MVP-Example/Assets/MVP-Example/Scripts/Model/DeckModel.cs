@@ -5,11 +5,16 @@ public class DeckModel
     // properties
 
     private ReactiveCollection<int> _characterIDs;
-    private ReactiveCollection<bool> _isSelected;
+    private ReactiveCollection<bool> _selectState;
 
     public IReadOnlyReactiveCollection<int> CharacterIDs
     {
         get { return _characterIDs; }
+    }
+
+    public IReadOnlyReactiveCollection<bool> SelectState
+    {
+        get { return _selectState; }
     }
 
     // public methods
@@ -22,11 +27,11 @@ public class DeckModel
         _characterIDs.Add(0);
         _characterIDs.Add(0);
 
-        _isSelected = new ReactiveCollection<bool>();
+        _selectState = new ReactiveCollection<bool>();
 
-        _isSelected.Add(false);
-        _isSelected.Add(false);
-        _isSelected.Add(false);
+        _selectState.Add(false);
+        _selectState.Add(false);
+        _selectState.Add(false);
     }
 
     public void Reset()
@@ -34,25 +39,49 @@ public class DeckModel
         for (int i = 0; i < _characterIDs.Count; i++)
         {
             _characterIDs[i] = 0;
-            _isSelected[i] = false;
+            _selectState[i] = false;
         }
     }
 
     public void SelectCharacter(int index)
     {
-        for (int i = 0; i < _isSelected.Count; i++)
+        for (int i = 0; i < _selectState.Count; i++)
         {
             bool selected = i == index;
 
-            if (_isSelected[i] != selected)
+            if (_selectState[i] && selected)
             {
-                _isSelected[i] = selected;
+                _selectState[i] = false;
+            }
+            else if (_selectState[i] != selected)
+            {
+                _selectState[i] = selected;
             }
         }
     }
 
-    public void SetCharacter(int index, int characterId)
+    public void SetCharacter(int characterId)
     {
-        _characterIDs[index] = characterId;
+        int index;
+        if (SelectedIndex(out index))
+        {
+            _characterIDs[index] = characterId;
+        }
+    }
+
+    private bool SelectedIndex(out int index)
+    {
+        index = -1;
+
+        for (int i = 0; i < _selectState.Count; i++)
+        {
+            if (_selectState[i])
+            {
+                index = i;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

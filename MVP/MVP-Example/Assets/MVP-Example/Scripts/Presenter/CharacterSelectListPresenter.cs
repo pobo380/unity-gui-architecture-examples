@@ -13,12 +13,12 @@
         _model = model;
     }
 
-    public void Setup()
+    public void Setup(DeckModel deckModel)
     {
         foreach (var item in _model.ListEnumerable)
         {
             var view = _view.AddPanel();
-            var presenter = new CharacterSelectPanelPresenter(view, item);
+            var presenter = new CharacterSelectPanelPresenter(view, item, deckModel);
             presenter.Setup();
         }
     }

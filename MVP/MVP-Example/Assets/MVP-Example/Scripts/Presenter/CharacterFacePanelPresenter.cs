@@ -21,11 +21,17 @@ public class CharacterFacePanelPresenter
     {
         _index = index;
         _model.CharacterIDs.ObserveReplace().Where(prop => prop.Index == _index).Subscribe(prop => ReplaceCharacter(prop));
+        _view.OnClick = SelectCharacter;
     }
 
     // private methods
 
-    public void ReplaceCharacter(CollectionReplaceEvent<int> prop)
+    private void SelectCharacter()
+    {
+        _model.SelectCharacter(_index);
+    }
+
+    private void ReplaceCharacter(CollectionReplaceEvent<int> prop)
     {
         int charId = prop.NewValue;
 

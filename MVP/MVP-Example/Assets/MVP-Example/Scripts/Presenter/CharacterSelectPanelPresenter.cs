@@ -6,23 +6,27 @@ public class CharacterSelectPanelPresenter
 
     private CharacterSelectPanelView _view;
     private Character _characterMasterData;
+    private DeckModel _deckModel;
 
     // public methods
 
-    public CharacterSelectPanelPresenter(CharacterSelectPanelView view, Character characterMasterData)
+    public CharacterSelectPanelPresenter(CharacterSelectPanelView view, Character characterMasterData, DeckModel deckModel)
     {
         _view = view;
         _characterMasterData = characterMasterData;
+        _deckModel = deckModel;
     }
 
     public void Setup()
     {
-        RefreshView();
+        SetupCharacterInfo();
+
+        _view.OnClick = SelectPanelOnClick;
     }
 
     // private method
 
-    public void RefreshView()
+    private void SetupCharacterInfo()
     {
         _view.SetNameText(_characterMasterData.Name.ToString());
         _view.SetHPText(_characterMasterData.HP.ToString());
@@ -40,5 +44,10 @@ public class CharacterSelectPanelPresenter
         {
             _view.FacePanel.SetElementFrame(elementColor);
         }
+    }
+
+    private void SelectPanelOnClick()
+    {
+        _deckModel.SetCharacter(_characterMasterData.ID);
     }
 }

@@ -35,6 +35,11 @@ public class CharacterFacePanelView : MonoBehaviour
         _elementFrame.color = color;
     }
 
+    public void Hoge()
+    {
+        ButtonOnClick();
+    }
+
     // private methods
 
     private void ButtonOnClick()
