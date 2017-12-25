@@ -21,17 +21,19 @@ public class DeckModel
 
     public DeckModel()
     {
-        _characterIDs = new ReactiveCollection<int>();
+        _characterIDs = new ReactiveCollection<int>
+        {
+            0,
+            0,
+            0
+        };
 
-        _characterIDs.Add(0);
-        _characterIDs.Add(0);
-        _characterIDs.Add(0);
-
-        _selectState = new ReactiveCollection<bool>();
-
-        _selectState.Add(false);
-        _selectState.Add(false);
-        _selectState.Add(false);
+        _selectState = new ReactiveCollection<bool>
+        {
+            false,
+            false,
+            false
+        };
     }
 
     public void Reset()
